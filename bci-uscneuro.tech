@@ -20,7 +20,7 @@ server {
 
     add_header Strict-Transport-Security "max-age=31536000; includeSubDomains" always;
 
-    root /var/www/bci-uscneuro.tech;
+    root /var/www/bci-uscneuro.tech/web-build;
     index index.html index.htm;
 
     location / {
