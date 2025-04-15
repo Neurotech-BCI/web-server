@@ -56788,7 +56788,7 @@ qU(){var s=0,r=A.P(t.H),q=this,p
 var $async$qU=A.K(function(a,b){if(a===1)return A.M(b,r)
 while(true)switch(s){case 0:q.xD(new A.eP("fetching"))
 s=2
-return A.Q(A.arm(A.eY("/api/data")),$async$qU)
+return A.Q(A.arm(A.eY("https://bci-uscneuro.tech/api/data")),$async$qU)
 case 2:p=b
 if(p.b===200)q.xD(new A.eP(A.ar8(A.ap7(p.e).c.a.i(0,"charset")).dj(p.w)))
 else q.xD(new A.eP("error"))
