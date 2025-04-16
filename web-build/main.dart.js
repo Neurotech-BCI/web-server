@@ -56089,13 +56089,14 @@ return A.Z(new A.aj(a,new A.ME(s,r,b,0),q),!0,q.h("av.E"))},
 ri(){var s=0,r=A.P(t.hd),q,p,o,n,m,l,k
 var $async$ri=A.Q(function(a,b){if(a===1)return A.M(b,r)
 while(true)switch(s){case 0:s=3
-return A.R($.xP().a_l("datafiles/test2.csv"),$async$ri)
+return A.R($.xP().a_l("datafiles/test.csv"),$async$ri)
 case 3:m=b
-l=A.amp(A.c([m],t.yH),!0,null,"\t",'"','"',"\r\n",!0,!0,null).Xl(m,t.z)
+l=A.amp(A.c([m],t.yH),!0,null,"\t",'"','"',"\r\n",!0,!0,null).Xl(m,t.z)[0]
 k=A.c([],t.gg)
-for(p=0;p<l.length;){o=B.b.bs(l[p],1,17)
+for(p=1;p+15<l.length;){o=B.b.bs(l,p,p+16)
 n=A.Y(o).h("aj<1,E>")
-k.push(A.Z(new A.aj(o,new A.MB(),n),!0,n.h("av.E")));++p}q=k
+k.push(A.Z(new A.aj(o,new A.MB(),n),!0,n.h("av.E")))
+p+=31}q=k
 s=1
 break
 case 1:return A.N(q,r)}})
