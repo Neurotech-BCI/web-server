@@ -1,0 +1,9 @@
+[package]
+name    = "csv_uploader"
+version = "0.1.0"
+edition = "2021"    # still current
+
+[dependencies]
+actix-web = { version = "4.10.2", features = ["macros"] }   # add extra features (e.g. "rustls") as you need
+tokio     = { version = "1.44.2", features = ["rt-multi-thread", "macros"] }
+futures-util = "0.3.31"

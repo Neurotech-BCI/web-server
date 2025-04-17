@@ -22,7 +22,7 @@ void main(List<String> args) async {
 
   var handler = Pipeline().addMiddleware(logRequests()).addHandler(router);
 
-  final server = await io.serve(handler, 'localhost', 5000);
+  final server = await io.serve(handler, '127.0.0.1', 5000);
 
   print('Server listening on port ${server.port}');
 }
