@@ -1,0 +1,1 @@
+/root/setup-script.sh
