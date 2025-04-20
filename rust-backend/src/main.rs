@@ -1,4 +1,6 @@
 use actix_web::{get, post, web, App, HttpResponse, HttpServer, Responder};
+use std::sync::Arc;
+use std::sync::Mutex;
 use once_cell::sync::Lazy;
 use serde_json::Value;
 use std::io::Read;
@@ -268,16 +270,20 @@ async fn main() -> std::io::Result<()> {
         }
     }
 
+    let state: SharedState = Arc::new(Mutex::new(RecordingState::default()));
+    let state_data = web::Data::new(state);
+
     println!("🚀  CSV server listening on 0.0.0.0:6000");
-    HttpServer::new(|| {
+    HttpServer::new(move || {
         App::new()
+            .app_data(web::PayloadConfig::new(20 * 1024 * 1024)) // 20 MB upload cap
+            .app_data(state_data.clone())
             .service(upload_csv)
             .service(inference)
             .service(get_data)
             .service(start_demo)
             .service(stop_demo)
             .service(health)
-            .app_data(web::PayloadConfig::new(20 * 1024 * 1024)) // 20 MB upload cap
     })
     .bind(("0.0.0.0", 6000))?
     .run()
