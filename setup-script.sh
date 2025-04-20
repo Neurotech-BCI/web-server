@@ -78,5 +78,5 @@ echo
 echo "✅ --- Testing and restarting NGINX configuration --- ✅"
 nginx -t && systemctl restart nginx
 
+echo
 echo "🚀 ---Production application updated--- 🚀"
-

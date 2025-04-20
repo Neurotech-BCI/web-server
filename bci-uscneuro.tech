@@ -27,7 +27,7 @@ server {
         try_files $uri $uri/ /index.html;
     }
     
-    location /api/ {
+    location /test/ {
         proxy_pass http://127.0.0.1:5000/;
         proxy_set_header Host $host;
         proxy_set_header X-Real-IP $remote_addr;
@@ -35,7 +35,7 @@ server {
     }
 
     # rust server for testing
-    location /test/ {
+    location /api/ {
         client_max_body_size 10M; # maximum filesize is 10MB
 
         proxy_pass http://127.0.0.1:6000/;
