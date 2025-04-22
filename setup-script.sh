@@ -28,10 +28,10 @@ for port in 5000 6000 8000; do
     fi
 done
 
-echo
-echo "🎯 --- Starting Dart test server (port 5000) --- 🎯"
-cd /root/web-server/backend || exit 1
-dart run testserver.dart &
+#echo
+#echo "🎯 --- Starting Dart test server (port 5000) --- 🎯"
+#cd /root/web-server/backend || exit 1
+#dart run testserver.dart &
 
 echo
 echo "🦀 --- Building and starting Actix Web server (port 6000) --- 🦀"
@@ -70,7 +70,7 @@ wait_for_port() { # polls a port until it becomes open
     echo "✅ Open!"
 }
 
-wait_for_port 5000
+# wait_for_port 5000
 wait_for_port 6000
 wait_for_port 8000 # uvicorn takes a while to start, so no worries if this gets stuck
 
