@@ -13,7 +13,7 @@ const TEST_CSV_PATH: &str = "/root/InferenceAPI/test_data/test.csv";
 /// Where your inference microservice lives
 const INFERENCE_ENDPOINT: &str = "http://127.0.0.1:8000/inference";
 /// Max packets per demo run
-const MAX_SAMPLES: usize = 5;
+const MAX_SAMPLES: usize = 120;
 
 /// In‑memory CSV accumulator
 #[derive(Default)]
