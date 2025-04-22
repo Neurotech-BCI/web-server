@@ -22079,10 +22079,10 @@ ay6(){var s,r,q,p=A.b([],t.zg),o=t.Cm,n=J.il(40,o)
 for(s=t.S,r=0;r<40;++r)n[r]=A.aP(16,0,!1,s)
 q=J.il(16,o)
 for(r=0;r<16;++r)q[r]=A.aP(40,0,!1,s)
-p=new A.jp(B.kq,new A.fc("Starting",0,0,0,!1,!1,p,n,q,new A.EX()))
+p=new A.jp(B.kq,new A.fc("Starting",0,0,!1,!1,p,n,q,new A.EX()))
 p.yi()
 return p},
-fc:function fc(a,b,c,d,e,f,g,h,i,j){var _=this
+fc:function fc(a,b,c,d,e,f,g,h,i){var _=this
 _.a=a
 _.b=b
 _.c=c
@@ -22091,8 +22091,7 @@ _.e=e
 _.f=f
 _.r=g
 _.w=h
-_.x=i
-_.y=j},
+_.x=i},
 jp:function jp(a,b){var _=this
 _.a=a
 _.b=$
@@ -72765,15 +72764,15 @@ A.jp.prototype={
 yi(){var s=0,r=A.Q(t.H),q=this,p,o,n,m,l,k,j,i
 var $async$yi=A.M(function(a,b){if(a===1)return A.N(b,r)
 while(true)switch(s){case 0:p=t.z
-case 2:if(!(o=q.c,n=o.c,n<381)){s=3
+case 2:if(!(o=q.c,n=o.b,n<381)){s=3
 break}m=n*40
 l=40+m
-o=o.r
+o=o.f
 if(l<o.length){k=B.b.bK(o,m,l)
-j=q.c.y.vV(k)
-i=q.c.y.vU(k)
+j=q.c.x.vV(k)
+i=q.c.x.vU(k)
 o=q.c
-q.mp(new A.fc(o.a,o.b,o.c+1,o.d,o.e,!1,o.r,j,i,o.y))}s=4
+q.mp(new A.fc(o.a,o.b+1,o.c,o.d,!1,o.f,j,i,o.x))}s=4
 return A.T(A.n0(B.dI,null,p),$async$yi)
 case 4:s=2
 break
@@ -72782,14 +72781,14 @@ return A.O(null,r)}})
 return A.P($async$yi,r)},
 xN(){var s=0,r=A.Q(t.H),q=this,p,o,n,m
 var $async$xN=A.M(function(a,b){if(a===1)return A.N(b,r)
-while(true)switch(s){case 0:case 2:if(!(q.c.r.length<15240)){s=3
+while(true)switch(s){case 0:case 2:if(!(q.c.f.length<15240)){s=3
 break}s=4
 return A.T(A.aFp(A.eQ("https://bci-uscneuro.tech/api/data")),$async$xN)
 case 4:p=b
-o=q.c.y.agp(A.ald(A.akR(p.e).c.a.h(0,"charset")).er(p.w))
+o=q.c.x.agp(A.ald(A.akR(p.e).c.a.h(0,"charset")).er(p.w))
 n=o.length
 m=q.c
-q.mp(new A.fc("Data Collected "+n,m.b+1,m.c,m.d,m.e,!1,o,m.w,m.x,m.y))
+q.mp(new A.fc("Data Collected "+n,m.b,m.c,m.d,!1,o,m.r,m.w,m.x))
 s=2
 break
 case 3:return A.O(null,r)}})
@@ -72801,7 +72800,7 @@ return A.T(A.as7(A.eQ("https://bci-uscneuro.tech/api/demo/start")),$async$xD)
 case 2:p=b
 o=A.ald(A.akR(p.e).c.a.h(0,"charset")).er(p.w)
 n=q.c
-q.mp(new A.fc(o,n.b,n.c,n.d,!0,!1,n.r,n.w,n.x,n.y))
+q.mp(new A.fc(o,n.b,n.c,!0,!1,n.f,n.r,n.w,n.x))
 q.xN()
 return A.O(null,r)}})
 return A.P($async$xD,r)},
@@ -72812,10 +72811,10 @@ return A.T(A.as7(A.eQ("https://bci-uscneuro.tech/api/demo/stop")),$async$xE)
 case 2:p=b
 o=A.ald(A.akR(p.e).c.a.h(0,"charset")).er(p.w)
 n=q.c
-m=n.r
-l=n.y.vV(m)
+m=n.f
+l=n.x.vV(m)
 k=q.c
-q.mp(new A.fc(o,n.b,n.c,n.d,n.e,!1,m,l,k.y.vU(k.r),q.c.y))
+q.mp(new A.fc(o,n.b,n.c,n.d,!1,m,l,k.x.vU(k.f),q.c.x))
 return A.O(null,r)}})
 return A.P($async$xE,r)}}
 A.GE.prototype={
@@ -72827,9 +72826,9 @@ A.a_k.prototype={
 $2(a,b){var s,r,q=null,p=b.b,o=p/1512,n=207*o,m=b.d-n-35,l=t.E
 l=A.b([A.jR(B.bM,A.b([A.c2(A.vI("png_assets/header.png",B.ht),n,p),A.Hy(q,A.c2(A.vI("png_assets/headerText.png",B.k5),224*o,653*o),q,q,0,q,0,q)],l),B.X,B.bZ),A.c2(q,15,q)],l)
 s=this.a
-r=s.e
+r=s.d
 if(!r)l.push(new A.x3(p,m,q))
-if(r)l.push(A.amr(s.x,m,s.w,s.d,s.b,p,!1))
+if(r)l.push(A.amr(s.w,m,s.r,s.c,s.b,p,!1))
 return A.mB(l,B.bw,B.bC)},
 $S:116}
 A.GL.prototype={
