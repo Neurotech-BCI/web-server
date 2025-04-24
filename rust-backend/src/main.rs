@@ -2,6 +2,8 @@ use actix_web::{get, post, web, App, HttpResponse, HttpServer, Responder, middle
 use log::error;
 use parking_lot::Mutex;
 use reqwest::Client;
+use log::info;
+use chrono::Utc;
 use serde_json::Value;
 use std::fs;
 use std::sync::{
@@ -9,11 +11,14 @@ use std::sync::{
 };
 
 /// Path for your local test CSV
-const TEST_CSV_PATH: &str = "/root/InferenceAPI/test_data/test.csv";
+const TEST_CSV_PATH: &str = "/root/InferenceAPI/test_data/test_1.csv";
 /// Where your inference microservice lives
 const INFERENCE_ENDPOINT: &str = "http://127.0.0.1:8000/inference";
 /// Max packets per demo run
 const MAX_SAMPLES: usize = 120;
+
+// debug flag
+const DEBUG: bool = false;
 
 /// In‑memory CSV accumulator
 #[derive(Default)]
@@ -21,6 +26,7 @@ struct CsvCache {
     buf: String,
     header_seen: bool,
     samples: usize,
+    last_ts: Option<f64>,
 }
 
 impl CsvCache {
@@ -28,34 +34,52 @@ impl CsvCache {
         self.buf.clear();
         self.header_seen = false;
         self.samples = 0;
+        self.last_ts = None;
     }
 
     fn push_packet(&mut self, bytes: &[u8]) -> Result<(), &'static str> {
         if self.samples >= MAX_SAMPLES {
             return Err("demo buffer full");
         }
-        let text = std::str::from_utf8(bytes).map_err(|_| "CSV must be UTF‑8")?;
-        let mut lines = text.lines();
 
-        // keep header only once
+        let text   = std::str::from_utf8(bytes).map_err(|_| "CSV must be UTF-8")?;
+        let mut it = text.lines();
+
+        // ─── 1. header handling ───────────────────────────────────────────────
         if !self.header_seen {
-            if let Some(h) = lines.next() {
-                self.buf.push_str(h);
+            if let Some(hdr) = it.next() {
+                self.buf.push_str(hdr);
                 self.buf.push('\n');
             }
             self.header_seen = true;
         } else {
-            // skip this packet's header
-            let _ = lines.next();
+            // skip header of every *subsequent* packet
+            let _ = it.next();
         }
 
-        // append the rest
-        for line in lines {
+        // ─── 2. append rows, remembering whether we kept at least one ────────
+        let mut accepted_any = false;
+
+        for line in it {
+            let ts_str = line.split(',').next().unwrap_or("").trim_matches('"');
+
+            if let Ok(ts) = ts_str.parse::<f64>() {
+                if self.last_ts.map_or(false, |prev| ts <= prev) {
+                    continue;                      // duplicate or out-of-order
+                }
+                self.last_ts = Some(ts);
+            }
+
             self.buf.push_str(line);
             self.buf.push('\n');
+            accepted_any = true;
         }
 
-        self.samples += 1;
+        // ─── 3. bump the packet counter *only* when we really added data ─────
+        if accepted_any {
+            self.samples += 1;
+        }
+
         Ok(())
     }
 }
@@ -167,7 +191,7 @@ async fn stop_demo(app: SharedData) -> impl Responder {
         return HttpResponse::BadRequest().body("No demo running");
     }
 
-    let csv = {
+    let mut csv = {
         let guard = app.cache.lock();
         guard.buf.clone()
     };
@@ -176,6 +200,21 @@ async fn stop_demo(app: SharedData) -> impl Responder {
         return HttpResponse::Ok().body("No data collected");
     }
 
+    // save the CSV to a file
+    let filename = format!("/tmp/demo_{}.csv", chrono::Utc::now().format("%Y%m%d_%H%M%S"));
+    if let Err(e) = fs::write(&filename, &csv) {
+        error!("Failed to write CSV file: {e}");
+        return HttpResponse::InternalServerError()
+            .body(format!("Failed to write CSV file: {e}"));
+    }
+    info!("CSV saved to {filename}");
+
+    if DEBUG {
+        // use the test data
+        csv = fs::read_to_string(TEST_CSV_PATH).unwrap_or_default();
+    }
+
+    // send the CSV to the inference service
     let client = Client::new();
     let resp = match client
         .post(INFERENCE_ENDPOINT)
