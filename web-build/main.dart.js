@@ -72804,7 +72804,7 @@ A.jp.prototype={
 yi(){var s=0,r=A.Q(t.H),q=this,p,o,n,m,l,k,j,i
 var $async$yi=A.M(function(a,b){if(a===1)return A.N(b,r)
 while(true)switch(s){case 0:p=t.z
-case 2:if(!(o=q.c,n=o.b,n<168)){s=3
+case 2:if(!(o=q.c,n=o.b,n<83)){s=3
 break}m=n*90
 l=90+m
 o=o.f
@@ -72822,7 +72822,7 @@ return A.O(null,r)}})
 return A.P($async$yi,r)},
 xN(){var s=0,r=A.Q(t.H),q=this,p,o,n,m
 var $async$xN=A.M(function(a,b){if(a===1)return A.N(b,r)
-while(true)switch(s){case 0:case 2:if(!(q.c.f.length<15240)){s=3
+while(true)switch(s){case 0:case 2:if(!(q.c.f.length<7620)){s=3
 break}s=4
 return A.T(A.aFr(A.eQ("https://bci-uscneuro.tech/api/data")),$async$xN)
 case 4:p=b
@@ -72876,7 +72876,7 @@ l=A.b([A.jR(B.bM,A.b([A.bV(A.vI("png_assets/header.png",B.hu),n,p),A.HB(q,A.bV(A
 s=this.a
 r=s.d
 if(!r&&!s.y)l.push(new A.x3(p,m,q))
-if(r&&!s.y)l.push(A.amr(s.w,m,s.r,s.c,s.b,169,p,s.e))
+if(r&&!s.y)l.push(A.amr(s.w,m,s.r,s.c,s.b,84,p,s.e))
 if(s.y)l.push(new A.GH(m,q))
 return A.kw(l,B.bw,B.bC)},
 $S:171}
@@ -72948,7 +72948,7 @@ ae(){return new A.L0()}}
 A.L0.prototype={
 N(a){return new A.q_(new A.aaH(this),null)}}
 A.aaH.prototype={
-$2(a,b){var s=null,r=b.b,q=r*0.03333333333333333,p=r*0.05,o=p/10,n=p/5,m=A.Tx(B.l,1),l=this.a.a,k=l.c,j=A.fU("Channel  "+k,s,s,s,B.Ms,s,s),i=A.bV(s,s,p/6),h=A.fu(s,s,B.z,$.SB()[k],s,q,s,s,q),g=A.bV(s,s,p/2)
+$2(a,b){var s=null,r=b.b,q=r*0.03333333333333333,p=r*0.05,o=p/10,n=p/5,m=A.Tx(B.l,1),l=this.a.a,k=l.c,j=A.fU("Channel  "+(k+1),s,s,s,B.Ms,s,s),i=A.bV(s,s,p/6),h=A.fu(s,s,B.z,$.SB()[k],s,q,s,s,q),g=A.bV(s,s,p/2)
 l=l.d
 return A.fu(s,A.ap1(A.b([j,i,h,g,A.i8(s,s,s,new A.Eo(k,l,B.kr,s),new A.E(r*0.75,50))],t.E),B.aT,B.bC),B.z,s,new A.cI(s,s,m,s,s,s,B.aj),s,new A.aL(n,n,n,n),new A.aL(o,o,o,o),r)},
 $S:455}
