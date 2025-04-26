@@ -72911,7 +72911,7 @@ av(a,b){var s,r,q,p,o,n,m,l,k,j
 for(s=this.b,r=b.a,q=0;p=$.SB(),q<16;++q){o=$.Z()
 n=o.ba()
 n.saA(p[q])
-n.sjO(0.6)
+n.sjO(1.3)
 n.stI(B.h2)
 n.sem(B.aX)
 m=o.bX()
