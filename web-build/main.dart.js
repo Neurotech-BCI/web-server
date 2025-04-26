@@ -72682,20 +72682,18 @@ k=l<=s?a:s-m
 j=B.h.iy(m,a)
 for(n=m+k,i=0;i<r;++i){for(h=m,g=0;h<n;++h)g+=b[h][i]
 o[j][i]=B.c.ap(g/k)}}return o},
-Oo(a,b){var s,r,q,p,o,n,m,l,k,j,i,h,g
+Oo(a,b){var s,r,q,p,o,n,m,l,k,j,i,h
 if(a<=0)throw A.f(A.ey(a,"x must be > 0",null))
-s=b.length
-if(s===0)return A.b([],t.Zb)
-r=b[0].length
-for(q=0;q<s;++q)if(b[q].length!==r)throw A.f(A.bq("All rows must have the same length",null))
-p=B.h.iy(r+a-1,a)
-o=J.hr(s,t.Cm)
-for(n=t.S,q=0;q<s;++q)o[q]=A.aP(p,0,!1,n)
-for(m=0;m<r;m=l){l=m+a
-k=l<=r?a:r-m
-j=B.h.iy(m,a)
-for(n=m+k,i=0;i<s;++i){for(h=m,g=0;h<n;++h)g+=b[i][h]
-o[i][j]=B.c.ap(g/k)}}return o},
+s=b[0].length
+for(r=0;r<16;++r)if(b[r].length!==s)throw A.f(A.bq("All rows must have the same length",null))
+q=B.h.iy(s+a-1,a)
+p=J.hr(16,t.Cm)
+for(o=t.S,r=0;r<16;++r)p[r]=A.aP(q,0,!1,o)
+for(n=0;n<s;n=m){m=n+a
+l=m<=s?a:s-n
+k=B.h.iy(n,a)
+for(o=n+l,j=0;j<16;++j){for(i=n,h=0;i<o;++i)h+=b[j][i]
+p[j][k]=B.c.ap(h/l)}}return p},
 Gj(a,b){var s,r,q
 if(a.length===0)return A.b([],t.t)
 s=B.b.oT(a,new A.V6())
@@ -72860,10 +72858,10 @@ else{i=A.x9(B.d.n3(J.d2(o)))
 n=i==null?0:i}i=q.c
 m=i.f
 l=i.x
-l=l.Oo(127,l.vV(m))
+l=l.Op(127,l.vV(m))
 k=q.c
 j=k.x
-q.k9(new A.em(i.a,i.b,n,i.d,i.e,m,l,j.Op(127,j.vU(k.f)),q.c.x,!1))
+q.k9(new A.em(i.a,i.b,n,i.d,i.e,m,l,j.Oo(127,j.vU(k.f)),q.c.x,!1))
 return A.O(null,r)}})
 return A.P($async$xE,r)}}
 A.GG.prototype={
