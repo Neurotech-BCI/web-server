@@ -72820,17 +72820,16 @@ case 3:q.k9(new A.em(o.a,n,o.c,o.d,!0,o.f,o.r,o.w,o.x,o.y))
 q.xE()
 return A.O(null,r)}})
 return A.P($async$yi,r)},
-xN(){var s=0,r=A.Q(t.H),q=this,p,o,n,m,l
+xN(){var s=0,r=A.Q(t.H),q=this,p,o,n,m
 var $async$xN=A.M(function(a,b){if(a===1)return A.N(b,r)
 while(true)switch(s){case 0:case 2:if(!(q.c.f.length<15240)){s=3
 break}s=4
 return A.T(A.aFr(A.eQ("https://bci-uscneuro.tech/api/data")),$async$xN)
 case 4:p=b
 o=q.c.x.agq(A.ald(A.akR(p.e).c.a.h(0,"charset")).er(p.w))
-n=B.b.bI(q.c.f,254,o.length)
-m=o.length
-l=q.c
-q.k9(new A.em("Data Collected "+m,l.b,l.c,l.d,l.e,n,l.r,l.w,l.x,l.y))
+n=o.length
+m=q.c
+q.k9(new A.em("Data Collected "+n,m.b,m.c,m.d,m.e,o,m.r,m.w,m.x,m.y))
 s=2
 break
 case 3:return A.O(null,r)}})
@@ -72848,19 +72847,22 @@ return A.O(null,r)}})
 return A.P($async$xD,r)},
 xE(){var s=0,r=A.Q(t.H),q=this,p,o,n,m,l,k,j
 var $async$xE=A.M(function(a,b){if(a===1)return A.N(b,r)
-while(true)switch(s){case 0:j=q.c
-q.k9(new A.em(j.a,j.b,j.c,j.d,j.e,j.f,j.r,j.w,j.x,!0))
+while(true)switch(s){case 0:k=q.c
+j=k.f
+j=B.b.bI(j,254,j.length)
+p=q.c
+q.k9(new A.em(k.a,k.b,k.c,k.d,k.e,j,p.r,p.w,p.x,!0))
 s=2
 return A.T(A.as9(A.eQ("https://bci-uscneuro.tech/api/demo/stop")),$async$xE)
-case 2:p=b
-o=B.cF.Pd(A.ald(A.akR(p.e).c.a.h(0,"charset")).er(p.w),null).h(0,"prediction")
-if(typeof o=="number")n=o
-else{j=A.x9(B.d.n3(J.d2(o)))
-n=j==null?0:j}j=q.c
-m=j.f
-l=j.x.vV(m)
-k=q.c
-q.k9(new A.em(j.a,j.b,n,j.d,j.e,m,l,k.x.vU(k.f),q.c.x,!1))
+case 2:o=b
+n=B.cF.Pd(A.ald(A.akR(o.e).c.a.h(0,"charset")).er(o.w),null).h(0,"prediction")
+if(typeof n=="number")m=n
+else{k=A.x9(B.d.n3(J.d2(n)))
+m=k==null?0:k}k=q.c
+j=k.f
+p=k.x.vV(j)
+l=q.c
+q.k9(new A.em(k.a,k.b,m,k.d,k.e,j,p,l.x.vU(l.f),q.c.x,!1))
 return A.O(null,r)}})
 return A.P($async$xE,r)}}
 A.GG.prototype={
