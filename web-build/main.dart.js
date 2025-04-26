@@ -72849,7 +72849,7 @@ xE(){var s=0,r=A.Q(t.H),q=this,p,o,n,m,l,k,j
 var $async$xE=A.M(function(a,b){if(a===1)return A.N(b,r)
 while(true)switch(s){case 0:k=q.c
 j=k.f
-j=B.b.bI(j,254,j.length)
+j=B.b.bI(j,127,j.length)
 p=q.c
 q.k9(new A.em(k.a,k.b,k.c,k.d,k.e,j,p.r,p.w,p.x,!0))
 s=2
@@ -72934,7 +72934,7 @@ av(a,b){var s,r,q,p,o,n,m,l,k,j
 for(s=this.b,r=b.a,q=0;p=$.SB(),q<16;++q){o=$.Z()
 n=o.ba()
 n.saA(p[q])
-n.sjO(1.3)
+n.sjO(0.8)
 n.stI(B.h2)
 n.sem(B.aX)
 m=o.bX()
